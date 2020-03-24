@@ -110,6 +110,7 @@ $tokenBody = @{
   client_secret = $secret
   scope         = 'https://management.azure.com/.default'
 }
+
 $token = Invoke-RestMethod -Method POST -Uri $tokenUri -Headers $tokenHeaders -Body $tokenBody
 $actionHeaders = @{
   Authorization = 'Bearer ' + $token.access_token
