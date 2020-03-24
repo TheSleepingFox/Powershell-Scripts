@@ -17,19 +17,11 @@ function SendEmail()
 {
 #Powershell Version
 #Variables
-$relayserver="eRelay.raa.com.au"
-$emailrecipient="InfrastructureServices@raa.com.au"
-$emailsend=$env:Computername +"@raa.com.au"
+$relayserver="eRelay.relay.com.invalid"
+$emailrecipient="relay@eRelay.relay.com.invalid"
+$emailsend=$env:Computername +"@eRelay.relay.com.invalid"
 $subject="$env:computername $PSCommandPath"
 Send-MailMessage -From $emailSend -To $emailrecipient -Subject $subject -Body $(get-content $errorlog) -Priority High -SmtpServer $relayserver
-
-# Blat Email Sending Variables
-#$blat='.\blat.exe'
-#$relayserver="eRelay.raa.com.au"
-#$emailrecipient="InfrastructureServices@raa.com.au"
-#$emailsend=$env:Computername +"@raa.com.au"
-#$subject="$env:computername $PSCommandPath"
-#& $blat $errorLog -to $emailrecipient -s $subject -f $emailSend -Server $relayserver 
 }
 
 # Enable error trapping for the main script
